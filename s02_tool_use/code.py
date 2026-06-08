@@ -15,6 +15,7 @@ s02: Tool Use — 在 s01 基础上新增 4 个工具 + 分发映射。
 
 import os, subprocess
 from pathlib import Path
+from typing import Optional
 
 try:
     import readline
@@ -70,7 +71,7 @@ def safe_path(p: str) -> Path:
     return path
 
 
-def run_read(path: str, limit: int | None = None) -> str:
+def run_read(path: str, limit: Optional[int] = None) -> str:
     try:
         lines = safe_path(path).read_text().splitlines()
         if limit and limit < len(lines):
